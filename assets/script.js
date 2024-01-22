@@ -56,11 +56,30 @@ function createDots(){
 
 	//affecter le diapositive en cours
 	if(i==0){
-		
+
 		liDots.classList.add("dot_selected");
 
 	}
 }
 }
 
-createDots();
+
+let index=0;
+function updateImage(){
+	
+//etape 1 : selectionner la balise img du slider
+let img=document.querySelector(".banner-img");
+//etape 2 : recuperer le nom de la 1 er image du tableau
+let firstImageName = slides[index].image;
+//etape 3 : completer le chemin de l'image
+let srcImg="assets/images/slideshow/"+firstImageName;
+//etape 4 : modifier attribut src de l'image du slider
+img.src=srcImg;
+}
+
+function init(){
+	createDots();
+	updateImage();
+
+}
+ init();
