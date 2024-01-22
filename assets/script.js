@@ -18,11 +18,13 @@ const slides = [
 ]
 
 /*****ajout des events listner pour les fleches****/
-let index = 3;
+let index = 0;
 //recuperer la class img de la fleche gauche
 let eventleft = document.querySelector(".arrow_left");
 //ajout de l'event click sur la fleche gauche
 eventleft.addEventListener("click", () => {
+	index--;
+	updateImage();
 	console.log("fleche gauche")
 })
 
@@ -32,7 +34,7 @@ let eventRight = document.querySelector(".arrow_right");
 eventRight.addEventListener("click", () => {
 
 	index++;
-
+	updateImage();
 	console.log("fleche droite")
 
 })
@@ -80,7 +82,10 @@ function updateImage() {
 	//etape 4 : modifier attribut src de l'image du slider
 	img.src = srcImg;
 
+
+
 	/**** changer le tagline du slider */
+
 	//etape 1 : selectionner la balise p du slider
 	let tagImg=document.querySelector("#banner p");
 	//recuperer la structure html du tagline
