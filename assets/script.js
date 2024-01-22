@@ -16,3 +16,20 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+/*****ajout des events listner pour les fleches****/
+
+//recuperer la class img de la fleche gauche
+let eventleft=document.querySelector(".arrow_left");
+//ajout de l'event click sur la fleche gauche
+eventleft.addEventListener("click",()=>{
+	console.log("fleche gauche")
+})
+
+//recuperer la class img de la fleche droite
+let eventRight=document.querySelector(".arrow_right");
+//ajout de l'event click sur la fleche droite
+eventRight.addEventListener("click",()=>{
+	console.log("fleche droite")
+	
+})
