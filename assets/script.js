@@ -33,3 +33,27 @@ eventRight.addEventListener("click",()=>{
 	console.log("fleche droite")
 	
 })
+
+
+let bannerDots = document.getElementById("banner");
+let racineDots = document.querySelector(".dots");
+
+//creer un ul
+let ulDots = document.createElement("ul");
+racineDots.appendChild(ulDots);
+ulDots.classList.add("dots");
+
+
+function createDots(){
+
+	for(let i = 0; i<slides.length;i++){
+
+		//creer un li
+
+		let liDots = document.createElement("li");
+		liDots.classList.add("dot");
+		ulDots.appendChild(liDots);
+	}
+}
+
+createDots();
