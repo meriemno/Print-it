@@ -53,7 +53,14 @@ function createDots(){
 		let liDots = document.createElement("li");
 		liDots.classList.add("dot");
 		ulDots.appendChild(liDots);
+
+	//affecter le diapositive en cours
+	if(i==0){
+		
+		liDots.classList.add("dot_selected");
+
 	}
+}
 }
 
 createDots();
