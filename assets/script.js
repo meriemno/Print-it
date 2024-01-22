@@ -1,37 +1,40 @@
 const slides = [
 	{
-		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+		"image": "slide1.jpg",
+		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
+		"image": "slide2.jpg",
+		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
+		"image": "slide3.jpg",
+		"tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
+		"image": "slide4.png",
+		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
 
 /*****ajout des events listner pour les fleches****/
-
+let index = 3;
 //recuperer la class img de la fleche gauche
-let eventleft=document.querySelector(".arrow_left");
+let eventleft = document.querySelector(".arrow_left");
 //ajout de l'event click sur la fleche gauche
-eventleft.addEventListener("click",()=>{
+eventleft.addEventListener("click", () => {
 	console.log("fleche gauche")
 })
 
 //recuperer la class img de la fleche droite
-let eventRight=document.querySelector(".arrow_right");
+let eventRight = document.querySelector(".arrow_right");
 //ajout de l'event click sur la fleche droite
-eventRight.addEventListener("click",()=>{
+eventRight.addEventListener("click", () => {
+
+	index++;
+
 	console.log("fleche droite")
-	
+
 })
 
 
@@ -44,9 +47,9 @@ racineDots.appendChild(ulDots);
 ulDots.classList.add("dots");
 
 
-function createDots(){
+function createDots() {
 
-	for(let i = 0; i<slides.length;i++){
+	for (let i = 0; i < slides.length; i++) {
 
 		//creer un li
 
@@ -54,32 +57,43 @@ function createDots(){
 		liDots.classList.add("dot");
 		ulDots.appendChild(liDots);
 
-	//affecter le diapositive en cours
-	if(i==0){
+		//affecter le diapositive en cours
+		if (i == 0) {
 
-		liDots.classList.add("dot_selected");
+			liDots.classList.add("dot_selected");
 
+		}
 	}
 }
+
+
+
+function updateImage() {
+	/**** chnager l'image du slider ******/
+
+	//etape 1 : selectionner la balise img du slider
+	let img = document.querySelector(".banner-img");
+	//etape 2 : recuperer le nom de la 1 er image du tableau
+	let firstImageName = slides[index].image;
+	//etape 3 : completer le chemin de l'image
+	let srcImg = "assets/images/slideshow/" + firstImageName;
+	//etape 4 : modifier attribut src de l'image du slider
+	img.src = srcImg;
+
+	/**** changer le tagline du slider */
+	//etape 1 : selectionner la balise p du slider
+	let tagImg=document.querySelector("#banner p");
+	//recuperer la structure html du tagline
+	let tagTxt=tagImg.innerHTML=slides[index].tagLine;
+	//recuperer le tagline sans le span
+	tagTxt.textContent=slides[index].tagLine;
+
+
 }
 
-
-let index=0;
-function updateImage(){
-	
-//etape 1 : selectionner la balise img du slider
-let img=document.querySelector(".banner-img");
-//etape 2 : recuperer le nom de la 1 er image du tableau
-let firstImageName = slides[index].image;
-//etape 3 : completer le chemin de l'image
-let srcImg="assets/images/slideshow/"+firstImageName;
-//etape 4 : modifier attribut src de l'image du slider
-img.src=srcImg;
-}
-
-function init(){
+function init() {
 	createDots();
 	updateImage();
 
 }
- init();
+init();
