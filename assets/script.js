@@ -104,11 +104,11 @@ function updateImage() {
 	
 	for(let i=0; i < dotLi.length; i++){
 		
-		//ajout class dot_selected 
-		dotLi[index].classList.add("dot_selected");
+		
 		//supprimer la class dot_selected 
 		dotLi[i].classList.remove("dot_selected");
-		
+		//ajout class dot_selected 
+		dotLi[index].classList.add("dot_selected");
 	
 	}
 
