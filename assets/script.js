@@ -96,25 +96,24 @@ function updateImage() {
 
 
 	/**** changer les dots du slider */
-	if(index==0){
 
-		ulDots.childNodes[0].classList.add("dot_selected");
+	//etape 1 selectionner la class pour les dots
+	let dotLi=document.querySelectorAll(".dot");
+
+	
+	
+	for(let i=0; i < dotLi.length; i++){
 		
-	}else{
-		ulDots.childNodes[index-1].classList.remove("dot_selected");
-		ulDots.childNodes[index].classList.add("dot_selected");
+		//ajout class dot_selected 
+		dotLi[index].classList.add("dot_selected");
+		//supprimer la class dot_selected 
+		dotLi[i].classList.remove("dot_selected");
 		
+	
 	}
 
+	}
 
-	//etape 1 : selectionner les dots du slider
-	// let tabDots = document.querySelectorAll(".dot");
-	// //etape 2 : supprimer les class dot_selected
-	// for (let i = 0; i < tabDots.length; i++) {
-	// 	tabDots[i].classList.remove("dot_selected");
-	// 	tabDots[index].classList.add("dot_selected");
-	// }
-}
 
 function init() {
 	createDots();
