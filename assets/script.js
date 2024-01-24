@@ -23,11 +23,11 @@ const slides = [
 
 		//recuperer la class img de la fleche gauche
 
-		let eventleft = document.querySelector(".arrow_left");
+		let eventLeft = document.querySelector(".arrow_left");
 
 		//ajout de l'event click sur la fleche gauche
 
-		eventleft.addEventListener("click", () => {
+		eventLeft.addEventListener("click", () => {
 			index--;
 			console.log(index);
 			console.log(slides.length);
@@ -97,7 +97,7 @@ function createDots() {
 
 
 function updateImage() {
-	
+
 	/**** chnager l'image du slider ******/
 
 	//etape 1 : selectionner la balise img du slider
