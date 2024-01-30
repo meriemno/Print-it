@@ -161,7 +161,7 @@ function updateImage() {
 function init() {
 
 	createDots();
-	//updateImage();
+	updateImage();
 
 }
 init();
