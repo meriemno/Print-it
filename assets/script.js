@@ -19,77 +19,62 @@ const slides = [
 
 /*****ajout des events listner pour les fleches****/
 
-		let index = 0;
+let index = 0;
+let bannerDots = document.getElementById("banner");
+let racineDots = document.querySelector(".dots");
+//creer un ul
+let ulDots = document.createElement("ul");
+racineDots.appendChild(ulDots);
+ulDots.classList.add("dots");
+//recuperer la class img de la fleche gauche
+let eventLeft = document.querySelector(".arrow_left");
+//recuperer la class img de la fleche droite
+let eventRight = document.querySelector(".arrow_right");
 
-		//recuperer la class img de la fleche gauche
+//ajout de l'event click sur la fleche gauche
+eventLeft.addEventListener("click", () => {
 
-		let eventLeft = document.querySelector(".arrow_left");
+	index--;
+	//défilement infini gauche du carrousel
 
-		//ajout de l'event click sur la fleche gauche
+	if (index < 0) {
+		index = slides.length - 1;
+	}
 
-		eventLeft.addEventListener("click", () => {
-			index--;
-			console.log(index);
-			console.log(slides.length);
-
-			//défilement infini gauche du carrousel
-
-			if(index<0){
-				index=slides.length-1;
-			}
-			updateImage();
-			console.log("fleche gauche")
-		})
-
-		//recuperer la class img de la fleche droite
-
-		let eventRight = document.querySelector(".arrow_right");
-
-		//ajout de l'event click sur la fleche droite
-
-		eventRight.addEventListener("click", () => {
-
-			index++;
-			console.log(index);
-			console.log(slides.length);
-
-			//défilement infini droit du carrousel 
-
-			if (index > slides.length - 1) {
-				index = 0;
-			}
-			updateImage();
-			console.log("fleche droite")
-
-		})
+	updateImage();
+	console.log("fleche gauche")
+})
 
 
-		let bannerDots = document.getElementById("banner");
-		let racineDots = document.querySelector(".dots");
 
-		//creer un ul
+//ajout de l'event click sur la fleche droite
 
-		let ulDots = document.createElement("ul");
-		racineDots.appendChild(ulDots);
-		ulDots.classList.add("dots");
+eventRight.addEventListener("click", () => {
+
+	index++;
+	//défilement infini droit du carrousel 
+	if (index > slides.length - 1) {
+
+		index = 0;
+	}
+	updateImage();
+	console.log("fleche droite")
+
+})
+
+
 
 
 function createDots() {
-
 	for (let i = 0; i < slides.length; i++) {
-
 		//creer un li
-
 		let liDots = document.createElement("li");
 		liDots.classList.add("dot");
 		ulDots.appendChild(liDots);
 
 		//affecter le diapositive en cours
-
 		if (i == 0) {
-
 			liDots.classList.add("dot_selected");
-
 		}
 	}
 }
@@ -122,15 +107,15 @@ function updateImage() {
 
 	//etape 1 : selectionner la balise p du slider
 
-	let tagImg=document.querySelector("#banner p");
+	let tagImg = document.querySelector("#banner p");
 
 	//recuperer la structure html du tagline
 
-	let tagTxt=tagImg.innerHTML=slides[index].tagLine;
+	let tagTxt = tagImg.innerHTML = slides[index].tagLine;
 
 	//recuperer le tagline sans le span
 
-	tagTxt.textContent=slides[index].tagLine;
+	tagTxt.textContent = slides[index].tagLine;
 
 
 
@@ -138,13 +123,13 @@ function updateImage() {
 
 	//etape 1 selectionner la class pour les dots
 
-	let dotLi=document.querySelectorAll(".dot");
+	let dotLi = document.querySelectorAll(".dot");
 
-	
-	
-	for(let i=0; i < dotLi.length; i++){
-		
-		
+
+
+	for (let i = 0; i < dotLi.length; i++) {
+
+
 		//supprimer la class dot_selected 
 
 		dotLi[i].classList.remove("dot_selected");
@@ -152,10 +137,10 @@ function updateImage() {
 		//ajout class dot_selected 
 
 		dotLi[index].classList.add("dot_selected");
-	
-	}
 
 	}
+
+}
 
 
 function init() {
