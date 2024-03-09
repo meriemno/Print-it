@@ -17,7 +17,6 @@ const slides = [
 	}
 ]
 
-/*****ajout des events listner pour les fleches****/
 
 let index = 0;
 let bannerDots = document.getElementById("banner");
@@ -38,6 +37,7 @@ eventLeft.addEventListener("click", () => {
 	//défilement infini gauche du carrousel
 
 	if (index < 0) {
+		// reinitiase l'index a la derniere image du carroussel
 		index = slides.length - 1;
 	}
 
@@ -45,18 +45,18 @@ eventLeft.addEventListener("click", () => {
 	console.log("fleche gauche")
 })
 
-
-
 //ajout de l'event click sur la fleche droite
 
 eventRight.addEventListener("click", () => {
 
 	index++;
 	//défilement infini droit du carrousel 
+	//verifie si l'indice depasse le nombre d'images dans le carrousel
 	if (index > slides.length - 1) {
 
 		index = 0;
 	}
+	//mettre à jour le contenu de notre carrousel
 	updateImage();
 	console.log("fleche droite")
 
@@ -136,9 +136,10 @@ function updateImage() {
 
 		//ajout class dot_selected 
 
-		dotLi[index].classList.add("dot_selected");
+		
 
 	}
+	dotLi[index].classList.add("dot_selected");
 
 }
 
@@ -149,4 +150,5 @@ function init() {
 	updateImage();
 
 }
+
 init();
